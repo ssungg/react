@@ -7,7 +7,7 @@ function CartComponent() {
 
     const {isLogin, loginState} = useCustomLogin()
 
-    const {refreshCart, cartItems} = useCustomCart()
+    const {refreshCart, cartItems, changeCart} = useCustomCart()
 
     useEffect(() => {
 
@@ -29,9 +29,12 @@ function CartComponent() {
 
                     <div>
                         <ul>
-                            {Array.isArray(cartItems) && cartItems.map((item, index) => (
-                                <li key={index}><CartItemComponent {...item} /></li>
-                            ))}
+                            {cartItems.map( item => 
+                                <CartItemComponent {...item} 
+                                key={item.cino} 
+                                changeCart={changeCart}
+                                email = {loginState.email}
+                            />)}
                         </ul>
                     </div>
                 </div>

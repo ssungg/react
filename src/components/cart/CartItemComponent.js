@@ -3,9 +3,11 @@ import { API_SERVER_HOST } from '../../api/todoApi'
 
 const host = API_SERVER_HOST
 
-function CartItemComponent({cino, pname, price, pno, qty, imageFile}) {
+function CartItemComponent({cino, pname, price, pno, qty, imageFile, changeCart, email}) {
 
     const handleClickQty = (amount) => {
+
+      changeCart({email:email, cino:cino, pno,pno, qty:qty + amount})
 
     }
 
